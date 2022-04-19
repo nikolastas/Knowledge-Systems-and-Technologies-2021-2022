@@ -1,0 +1,121 @@
+@prefix ex: <http://example.org/> . 
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> . 
+
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> . 
+
+@prefix owl: <http://www.w3.org/2002/07/owl#> . 
+
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> . 
+
+@prefix dc: <http://purl.org/dc/elements/1.1/> . 
+
+@prefix dcterms: <http://purl.org/dc/terms/> . 
+
+@prefix foaf: <http://xmlns.com/foaf/0.1/> . 
+
+@prefix dbpedia: <http://dbpedia.org/resource/> . 
+
+ 
+ 
+
+# askhseis  
+
+ 
+
+# Crete is an island in Greece. 
+
+ex:Crete rdf:type ex:Island . 
+ex:Island rdf:type rdfs:Class.
+ex:Crete rdfs:label "Crete"@en . 
+ex:Greece rdf:type rdfs:Country . 
+ex:Greece rdf:type rdfs:Country .
+ex:Island rdfs:subClassOf ex:Country.
+ex:Greece rdfs:label "Ελλάδα"@el . 
+
+ex:Crete dcterms:isPartOf ex:Greece . 
+
+ 
+
+# Helen born at 1980. 
+
+ex:Helen rdf:type ex:Person . 
+
+ex:Helen rdfs:label "Helen"@el . 
+
+ex:Helen dcterms:created "1980"^^xsd:gYear . 
+
+ex:Person rdf:type rdfs:Class .
+# Helen knows Kostas is married to Irene. 
+
+ex:Helen foaf:knows [ 
+
+  rdf:type rdf:Statement ; 
+
+ rdf:subject ex:Kostas ; 
+
+  rdf:predicate dbpedia:spouse ; 
+
+ rdf:object ex:Irene ] . 
+
+ex:Irene rdf:type ex:Person . 
+
+ex:Kostas rdf:type ex:Person . 
+ex:Person rdf:type rdfs:Class .
+ 
+
+# Ο τηλεοπτικός σταθμός «Κανάλι 1» μεταδίδει την εκπομπή «Ειδήσεις» κάθε μέρα από τις 20:00 έως τις 21:00. 
+
+# The TV station «Channel 1» broadcasts the program «News» every day from 20:00 to 21:00. 
+
+ex:Channel1 rdf:type ex:TVStation . 
+ex:TVStation rdf:type rdfs:Class.
+ex:Channel1 ex:broadcasts ex:News . 
+
+ex:News rdf:type ex:Program . 
+
+ex:News ex:timeInterval [ 
+
+ ex:from "20:00"^^xsd:time ; 
+
+ ex:to "21:00"^^xsd:time ] . 
+
+ 
+
+# Every univercity is an Organization . 
+
+ex:University rdf:subClassOf ex:Organization . 
+# subClass or type ?
+ 
+
+#Every entity that has capital is a country . 
+
+_:x ex:hasCapital _:y . 
+
+_:y rdf:type ex:City . 
+
+_:x rdf:type ex:Country . 
+
+ex:Country rdf:type rdfs:Class.
+ex:City rdf:subClassOf ex:Country.
+
+
+# George lives in Athens and Maria in a city of Thessaly. 
+
+ex:George rdf:type ex:Person . 
+ex:George ex:lives ex:Athens . 
+
+ex:Athens rdf:type ex:City . 
+ex:Maria rdf:type ex:Person . 
+
+ex:Maria ex:lives _:c . 
+
+_:c rdf:type ex:City . 
+
+_:c rdf:in ex:Thessaly .
+
+ex:Person rdf:type rdfs:Class.
+ex:City rdf:type rdfs:Class .
+ex:Thessaly rdf:type rdfs:Resource .
+
+# ?? lives ??
