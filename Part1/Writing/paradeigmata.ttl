@@ -1,0 +1,27 @@
+@prefix ex: <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+
+ex:doc1 dc:creator ex:giannis .
+ex:giannis ex:name "Γιαννης"@el .
+ex:doc1 rdf:type ex:Document .
+ex:giannis rdf:type ex:Person .
+ex:Document rdf:type rdfs:Class .
+# doc 2 and doc3 created by unknown
+ex:doc2 dc:creator _:x .
+ex:doc3 dc:creator _:x .
+_:x rdf:type ex:Person .
+#doc1 published by Publisher1
+ex:doc1 dc:publisher ex:Publisher1 .
+# doc3 is mentioning Publisher1
+ex:doc3 dc:mentions [
+ rdf:type rdf:Statement ;
+ rdf:subject ex:doc1 ;
+ rdf:predicate dc:publisher ;
+ rdf:object ex:Publisher1 ] .

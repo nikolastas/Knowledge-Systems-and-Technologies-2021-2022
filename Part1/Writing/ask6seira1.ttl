@@ -1,0 +1,47 @@
+@prefix ex: <http://www.example.org/resource/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:Laywer rdfs:subClassOf ex:Person . #1
+ex:collaboratesWith rdfs:subPropertyOf ex:knows . #2
+ex:Mary rdf:type ex:Laywer . #3
+ex:Mary ex:collaboratesWith ex:John . #4
+
+# a) rdfs: subClassOf rdfs: range rdfs: Class .
+# b) rdfs: subClassOf rdfs: domain rdfs: Class .
+# c) rdf: type rdfs: range rdfs: Class .
+# d) rdfs: subPropertyOf rdfs: domain rdfs: Property .
+# e) rdfs: subPropertyOf rdfs: range rdfs: Property .
+
+
+# 2 =>
+ex:collaboratesWith rdf:type rdf:Property .
+
+# 3,4 =>
+ex:Mary rdf:type rdfs:Resource .
+ex:John rdf:type rdfs:Resource .
+
+ex:collaboratesWith rdfs:subPropertyOf ex:collaboratesWith .
+
+# 2, 4 =>
+ex:Mary ex:knows ex:John .
+
+# 1,3 =>
+ex:Mary rdf:type ex:Person .
+
+ex:knows rdf:type rdf:Property .
+
+
+
+# 2 =>
+ex:knows rdfs:subPropertyOf ex:knows .
+
+# 2 =>
+ex:collaboratesWith rdfs:subPropertyOf ex:knows .
+
+ex:Person rdf:type rdfs:Class .
+ex:Person rdfs:subClassOf rdfs:Resource .
+ex:Person rdfs:subClassOf ex:Person .
+ex:Laywer rdfs:subClassOf ex:Class .
+ex:Laywer rdfs:subClassOf ex:Resource .
+
