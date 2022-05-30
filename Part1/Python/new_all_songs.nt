@@ -1,3 +1,11 @@
+<http://example.org/ns/Concept> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> 
+
+<http://example.org/props/role> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> 
+
+
+
+
+
 <http://example.org/ns/2059210_data_sounds_http___archive_org_download_emckeown2005_06_29_flac16_emckeown2005_06_29t14_mp3> <http://example.org/props/year> <http://example.org/ns/2007> .
 <http://example.org/ns/496_MIL0877422> <http://example.org/props/duration> <http://example.org/ns/30073> .
 <http://example.org/ns/2059210_data_sounds_http___archive_org_download_bhs1996_10_19_flac16_bhs1996_10_19d1t10_mp3> <http://example.org/props/duration> <http://example.org/ns/193463> .
