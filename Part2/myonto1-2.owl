@@ -31,10 +31,10 @@
   <rdfs:range rdf:resource="http://www.example.org/ns/Publisher"/>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="http://www.example.org/props/hasTittle">
+<owl:ObjectProperty rdf:about="http://www.example.org/props/hasTitle">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   <rdfs:domain rdf:resource="http://www.example.org/ns/Song"/>
-  <rdfs:range rdf:resource="http://www.example.org/ns/Tittle"/>
+  <rdfs:range rdf:resource="http://www.example.org/ns/Title"/>
 </owl:ObjectProperty>
 
 <owl:ObjectProperty rdf:about="http://www.example.org/props/hasComposer">
@@ -43,22 +43,16 @@
   <rdfs:range rdf:resource="http://www.example.org/ns/Composer"/>
 </owl:ObjectProperty>
 
-<owl:ObjectProperty rdf:about="http://www.example.org/props/hasYear">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="http://www.example.org/ns/Song"/>
-  <rdfs:range rdf:resource="http://www.example.org/ns/Year"/>
-</owl:ObjectProperty>
-
-<owl:DatatypeProperty rdf:about="http://www.example.org/props/hasDateofBirth">
+<owl:DatatypeProperty rdf:about="http://www.example.org/props/hasDateOfBirth">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   <rdfs:domain rdf:resource="http://www.example.org/ns/Composer"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
 </owl:DatatypeProperty>
 
-<owl:DatatypeProperty rdf:about="http://www.example.org/props/hasDateofDeath">
+<owl:DatatypeProperty rdf:about="http://www.example.org/props/hasDateOfDeath">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   <rdfs:domain rdf:resource="http://www.example.org/ns/Composer"/>
-  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
 </owl:DatatypeProperty>
 
 <owl:DatatypeProperty rdf:about="http://www.example.org/props/hasPlace">
@@ -69,8 +63,14 @@
 
 <owl:DatatypeProperty rdf:about="http://www.example.org/props/hasBiography">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-  <rdfs:domain rdf:resource="http://www.example.org/ns/Song"/>
+  <rdfs:domain rdf:resource="http://www.example.org/ns/Composer"/>
   <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="http://www.example.org/props/hasYear">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="http://www.example.org/ns/Song"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
 </owl:DatatypeProperty>
 
 <owl:Class rdf:about="http://www.example.org/ns/Song">
@@ -89,7 +89,7 @@
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
-<owl:Class rdf:about="http://www.example.org/ns/Tittle">
+<owl:Class rdf:about="http://www.example.org/ns/Title">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
 </owl:Class>
 
@@ -137,18 +137,62 @@
 
 <owl:Class rdf:about="http://www.example.org/ns/JazzSongs">
   <rdfs:subClassOf rdf:resource="http://www.example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://www.example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://www.example.org/ns/Jazz"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="http://www.example.org/ns/PopSongs">
   <rdfs:subClassOf rdf:resource="http://www.example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://www.example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://www.example.org/ns/Pop"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="http://www.example.org/ns/CountrySongs">
   <rdfs:subClassOf rdf:resource="http://www.example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://www.example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://www.example.org/ns/Country"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="http://www.example.org/ns/Hip_HopSongs">
   <rdfs:subClassOf rdf:resource="http://www.example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://www.example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://www.example.org/ns/Hip_Hop"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="http://www.example.org/ns/IntrumentalSongs">
@@ -157,18 +201,62 @@
 
 <owl:Class rdf:about="http://www.example.org/ns/OperaSongs">
   <rdfs:subClassOf rdf:resource="http://www.example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://www.example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://www.example.org/ns/Opera"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="http://www.example.org/ns/FunkSongs">
   <rdfs:subClassOf rdf:resource="http://www.example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://www.example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://www.example.org/ns/Funk"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="http://www.example.org/ns/Traditional_FolkSongs">
   <rdfs:subClassOf rdf:resource="http://www.example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://www.example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://www.example.org/ns/Traditional_Folk"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="http://www.example.org/ns/ReggaeSongs">
   <rdfs:subClassOf rdf:resource="http://www.example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://www.example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://www.example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://www.example.org/ns/Reggae"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="http://www.example.org/ns/PleasureSongs">
@@ -11957,31 +12045,31 @@
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
 </ns:Genre>
 
-<ns:Genre rdf:about="#Pop">
+<ns:Genre rdf:about="http://www.example.org/ns/Pop">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
 </ns:Genre>
 
-<ns:Genre rdf:about="#Opera">
+<ns:Genre rdf:about="http://www.example.org/ns/Opera">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
 </ns:Genre>
 
-<ns:Genre rdf:about="#Traditional_Folk">
+<ns:Genre rdf:about="http://www.example.org/ns/Traditional_Folk">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
 </ns:Genre>
 
-<ns:Genre rdf:about="#Hip_Hop">
+<ns:Genre rdf:about="http://www.example.org/ns/Hip_Hop">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
 </ns:Genre>
 
-<ns:Genre rdf:about="#Country">
+<ns:Genre rdf:about="http://www.example.org/ns/Country">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
 </ns:Genre>
 
-<ns:Genre rdf:about="#Funk">
+<ns:Genre rdf:about="http://www.example.org/ns/Funk">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
 </ns:Genre>
 
-<ns:Genre rdf:about="#Instrumental">
+<ns:Genre rdf:about="http://www.example.org/ns/Instrumental">
   <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
 </ns:Genre>
 
