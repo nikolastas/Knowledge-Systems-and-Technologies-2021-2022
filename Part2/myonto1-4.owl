@@ -578,24 +578,30 @@
   <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
   <owl:equivalentClass>
     <owl:Class>
-      <owl:intersectionOf rdf:parseType="Collection">
-        <owl:Restriction>
-          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
-          <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#bottomDataProperty"/>
-        </owl:Restriction>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://example.org/ns/PopSongs"/>
-            <rdf:Description rdf:about="http://example.org/ns/FunkSongs"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:intersectionOf>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/PopSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/FunkSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/Hip_HopSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/Traditional_FolkSongs"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/SlowDanceSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/ReggaeSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/JazzSongs"/>
+      </owl:unionOf>
     </owl:Class>
   </owl:equivalentClass>
 </owl:Class>
 
 <owl:Class rdf:about="http://example.org/ns/After2000DanceSongs">
-  <rdfs:subClassOf rdf:resource="http://example.org/ns/DanceSongs"/>
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
   <owl:equivalentClass>
     <owl:Class>
       <owl:intersectionOf rdf:parseType="Collection">
@@ -647,6 +653,919 @@
             </rdfs:Datatype>
           </owl:someValuesFrom>
         </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/RAndBSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://example.org/ns/JazzSongs"/>
+            <rdf:Description rdf:about="http://example.org/ns/ReggaeSongs"/>
+          </owl:unionOf>
+        </owl:Class>
+        <rdf:Description rdf:about="http://example.org/ns/ArousalSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/RapSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/ArousalSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/Hip_HopSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/SoulSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/RAndBSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/BrassSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/SadSlowDanceSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/SlowDanceSongs"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/SlowDanceSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/SadnessSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/ClassicRockSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/RockSongs"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</xsd:maxInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/ModernRockSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/RockSongs"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/At60sPopSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/PopSongs"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1969</xsd:maxInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest>
+                    <rdf:Description>
+                      <rdf:first>
+                        <rdf:Description>
+                          <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1960</xsd:minInclusive>
+                        </rdf:Description>
+                      </rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                  </rdf:rest>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/At80sPopSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/PopSongs"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1989</xsd:maxInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest>
+                    <rdf:Description>
+                      <rdf:first>
+                        <rdf:Description>
+                          <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1980</xsd:minInclusive>
+                        </rdf:Description>
+                      </rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                  </rdf:rest>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/Before1950Songs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1950</xsd:maxInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/At60sSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1969</xsd:maxInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest>
+                    <rdf:Description>
+                      <rdf:first>
+                        <rdf:Description>
+                          <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1960</xsd:minInclusive>
+                        </rdf:Description>
+                      </rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                  </rdf:rest>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/After1970AndBefore1989Songs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1989</xsd:maxInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest>
+                    <rdf:Description>
+                      <rdf:first>
+                        <rdf:Description>
+                          <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1970</xsd:minInclusive>
+                        </rdf:Description>
+                      </rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                  </rdf:rest>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/At90sSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1999</xsd:maxInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest>
+                    <rdf:Description>
+                      <rdf:first>
+                        <rdf:Description>
+                          <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1990</xsd:minInclusive>
+                        </rdf:Description>
+                      </rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                  </rdf:rest>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/At2000Songs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2009</xsd:maxInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest>
+                    <rdf:Description>
+                      <rdf:first>
+                        <rdf:Description>
+                          <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</xsd:minInclusive>
+                        </rdf:Description>
+                      </rdf:first>
+                      <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                  </rdf:rest>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/After2010Songs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2010</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/EuropeSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasPlace"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Europe</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/AfricaSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasPlace"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Africa</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/SouthAmericaSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasPlace"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">South America</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/NorthAmericaSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasPlace"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">North America</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/AsiaSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasPlace"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Asia</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/OceaniaSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasPlace"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Oceania</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/EuropeClassicalSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasPlace"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Europe</owl:hasValue>
+        </owl:Restriction>
+        <rdf:Description rdf:about="http://example.org/ns/ClassicalSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/ClassicIntrumentsSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://example.org/ns/PianoSongs"/>
+            <rdf:Description rdf:about="http://example.org/ns/ViolinSongs"/>
+            <rdf:Description rdf:about="http://example.org/ns/OrchestraSongs"/>
+          </owl:unionOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/ModernIntrumentsSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://example.org/ns/Electric_GuitarSongs"/>
+            <rdf:Description rdf:about="http://example.org/ns/DrumsSongs"/>
+            <rdf:Description rdf:about="http://example.org/ns/SynthesizerSongs"/>
+          </owl:unionOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/BandIntrumentsSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://example.org/ns/DrumsSongs"/>
+            <rdf:Description rdf:about="http://example.org/ns/DrumsSongs"/>
+            <rdf:Description rdf:about="http://example.org/ns/SynthesizerSongs"/>
+          </owl:unionOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/RAndBModernInstruments">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://example.org/ns/JazzSongs"/>
+            <rdf:Description rdf:about="http://example.org/ns/PopSongs"/>
+          </owl:unionOf>
+        </owl:Class>
+        <rdf:Description rdf:about="http://example.org/ns/ArousalSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/ModernIntrumentsSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/AmericaRapSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/RapSongs"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/RapSongs"/>
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://example.org/ns/SouthAmericaSongs"/>
+            <rdf:Description rdf:about="http://example.org/ns/NorthAmericaSongs"/>
+          </owl:unionOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/AfricaAfter1960SoulSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/SoulSongs"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/SoulSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/AfricaSongs"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1960</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/HappySongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/PleasureSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/JoySongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/ArousalSongs"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/unHappySongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/SadnessSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/BoredomSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/AnxietySongs"/>
+      </owl:unionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/HappyPop">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/HappySongs"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/HappySongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/PopSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/SadRock">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/unHappySongs"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/unHappySongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/RockSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/ArousalRock">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/ArousalSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/RockSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/SleepSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/CalmnessSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/BoredomSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/UpBeatSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/JoySongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/ArousalSongs"/>
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://example.org/ns/CountrySongs"/>
+            <rdf:Description rdf:about="http://example.org/ns/FunkSongs"/>
+          </owl:unionOf>
+        </owl:Class>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/AsiaHappySongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/HappySongs"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/AsiaSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/HappySongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/EuropeUpBeatSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/UpBeatSongs"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/UpBeatSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/EuropeSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/StudySongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/ClassicalSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/CalmnessSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/WorkoutSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/UpBeatSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/PopSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/ChilloutSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <rdf:Description rdf:about="http://example.org/ns/CalmnessSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/BoredomSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/HappyBandInstrumentAfter1980Songs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <rdf:Description rdf:about="http://example.org/ns/HappySongs"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1980</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="http://example.org/ns/BandIntrumentsSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/UnHappyEuropePopSong">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/unHappySongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/EuropeSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/PopSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/After1950ClassicAsiaSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass rdf:resource="http://example.org/ns/ClassicalSongs"/>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/After2000CountryOceaniaSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/CountrySongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/OceaniaSongs"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/NorthAmericaJazzSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/NorthAmericaSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/JazzSongs"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/ModernFunkAfrica">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/FunkSongs"/>
+        <rdf:Description rdf:about="http://example.org/ns/AfricaSongs"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasYear"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/Traditional_FolkOrPopSouthAmerica">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <owl:Class>
+          <owl:unionOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://example.org/ns/Traditional_FolkSongs"/>
+            <rdf:Description rdf:about="http://example.org/ns/PopSongs"/>
+          </owl:unionOf>
+        </owl:Class>
+        <rdf:Description rdf:about="http://example.org/ns/SouthAmericaSongs"/>
       </owl:intersectionOf>
     </owl:Class>
   </owl:equivalentClass>
