@@ -3,12 +3,12 @@
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
          xmlns:owl="http://www.w3.org/2002/07/owl#"
-         xml:base="file://D:/Users/Nikos/Projects/stg/Part2/songs.nt"
-         xmlns="file://D:/Users/Nikos/Projects/stg/Part2/songs.nt#"
+         xml:base="file://D:/Users/Nikos/Projects/stg/Part2/Python/songs.nt"
+         xmlns="file://D:/Users/Nikos/Projects/stg/Part2/Python/songs.nt#"
          xmlns:prop="http://example.org/props/"
          xmlns:ns="http://example.org/ns/">
 
-<owl:Ontology rdf:about="file://D:/Users/Nikos/Projects/stg/Part2/songs.nt"/>
+<owl:Ontology rdf:about="file://D:/Users/Nikos/Projects/stg/Part2/Python/songs.nt"/>
 
 <owl:ObjectProperty rdf:about="http://example.org/props/hasGenre">
   <rdfs:domain rdf:resource="http://example.org/ns/Song"/>

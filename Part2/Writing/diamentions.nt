@@ -1,0 +1,9 @@
+<http://example.org/resource/1> <http://example.org/ontology/hasPart> <http://example.org/resource/4> .
+<http://example.org/resource/1> <http://example.org/ontology/hasPart> <http://example.org/resource/2> .
+<http://example.org/resource/1> <http://example.org/ontology/hasPart> <http://example.org/resource/5> .
+<http://example.org/resource/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/ontology/Object> .
+<http://example.org/resource/1> <http://example.org/ontology/hasPart> <http://example.org/resource/6> .
+<http://example.org/resource/1> <http://example.org/ontology/depthInCm> "125"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://example.org/resource/1> <http://example.org/ontology/widthInCm> "185"^^<http://www.w3.org/2001/XMLSchema#int> .
+<http://example.org/resource/1> <http://example.org/ontology/hasPart> <http://example.org/resource/3> .
+

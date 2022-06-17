@@ -3,12 +3,12 @@
          xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
          xmlns:owl="http://www.w3.org/2002/07/owl#"
-         xml:base="file://D:/Users/Nikos/Projects/stg/Part2/songs.nt"
-         xmlns="file://D:/Users/Nikos/Projects/stg/Part2/songs.nt#"
+         xml:base="file://D:/Users/Nikos/Projects/stg/Part2/Python/songs.nt"
+         xmlns="file://D:/Users/Nikos/Projects/stg/Part2/Python/songs.nt#"
          xmlns:prop="http://example.org/props/"
          xmlns:ns="http://example.org/ns/">
 
-<owl:Ontology rdf:about="file://D:/Users/Nikos/Projects/stg/Part2/songs.nt"/>
+<owl:Ontology rdf:about="file://D:/Users/Nikos/Projects/stg/Part2/Python/songs.nt"/>
 
 <owl:ObjectProperty rdf:about="http://example.org/props/hasGenre">
   <rdfs:domain rdf:resource="http://example.org/ns/Song"/>
@@ -107,6 +107,471 @@
 
 <owl:Class rdf:about="http://example.org/ns/Place">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/ClassicalSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Classical"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/RockSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Rock"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/JazzSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Jazz"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/PopSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Pop"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/CountrySongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Country"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/Hip_HopSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Hip_Hop"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/IntrumentalSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Instrumental"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/OperaSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Opera"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/FunkSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Funk"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/Traditional_FolkSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Traditional_Folk"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/ReggaeSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasGenre"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Reggae"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/PleasureSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasEmotion"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Pleasure"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/JoySongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasEmotion"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Joy"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/SadnessSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasEmotion"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Sadness"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/BoredomSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasEmotion"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Boredom"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/ArousalSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasEmotion"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Arousal"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/FearSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasEmotion"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Fear"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/AnxietySongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasEmotion"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Anxiety"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/CalmnessSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasEmotion"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Calmness"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/Acoustic_GuitarSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasInstrument"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Acoustic_Guitar"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/Electric_GuitarSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasInstrument"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Electric_Guitar"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/OrchestraSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasInstrument"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Orchestra"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/PianoSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasInstrument"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Piano"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/BanjoSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasInstrument"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Banjo"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/BassSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasInstrument"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Bass"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/DrumsSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasInstrument"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Drums"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/ViolinSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasInstrument"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Violin"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/HarmonicaSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasInstrument"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Harmonica"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/BrassSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasInstrument"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Brass"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/WoodwindSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasInstrument"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Woodwind"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="http://example.org/ns/SynthesizerSongs">
+  <rdfs:subClassOf rdf:resource="http://example.org/ns/Song"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="http://example.org/ns/Song"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="http://example.org/props/hasInstrument"/>
+          <owl:hasValue rdf:resource="http://example.org/ns/Synthesizer"/>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
 </owl:Class>
 
 <rdf:Description rdf:about="http://example.org/ns/496_MIL0882262">
