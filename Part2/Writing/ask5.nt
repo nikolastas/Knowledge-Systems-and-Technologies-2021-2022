@@ -1,0 +1,25 @@
+<!-- @prefix ex: <http://example.com/> .
+
+ex:worksAt rdfs:domain ex:Person .
+ex:worksAt rdfs:range ex:Place .
+ex:Place owl:disjointWith ex:Person .
+ex:Jim ex:worksAt ex:Berlin
+ex:Berlin a _:b1 .
+_:b1 owl:complementOf ex:Person . -->
+
+
+<!-- <http://example.com/worksAt> <http://www.w3.org/2000/01/rdf-schema#domain> <http://example.com/Person> .
+<http://example.com/worksAt> <http://www.w3.org/2000/01/rdf-schema#range> <http://example.com/Place> .
+<http://example.com/Place> <http://www.w3.org/2002/07/owl#disjointWith> <http://example.com/Person> .
+<http://example.com/Jim> <http://example.com/worksAt> <http://example.com/Berlin> .
+<http://example.com/Berlin> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> _:b1 .
+_:b1 <http://www.w3.org/2002/07/owl#complementOf> <http://example.com/Person> . -->
+
+
+Ontology(
+DisjointClasses(<http://example.com/Person> <http://example.com/Place>)
+ObjectPropertyRange(<http://example.com/worksAt> <http://example.com/Place>)
+ClassAssertion(ObjectComplementOf(<http://example.com/Person>) <http://example.com/Berlin>)
+AnnotationPropertyDomain(<http://example.com/worksAt> <http://example.com/Person>)
+AnnotationAssertion(<http://example.com/worksAt> <http://example.com/Jim> <http://example.com/Berlin>)
+)
